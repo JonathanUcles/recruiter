@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-
+import { Navbar } from '@/app/components'
+import { ClerkProvider } from '@clerk/nextjs'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -15,8 +16,26 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <ClerkProvider>
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        
+      </head>
+      
+      <body className={inter.className}>
+        <Navbar />
+        <main className='container'>
+          <div className="flex items-start justify-center min-h-screen">
+          <div className='mt-20'>
+          {children}
+          </div>
+          </div>
+        
+
+        </main>
+       
+        </body>
     </html>
+    </ClerkProvider>
   )
 }
