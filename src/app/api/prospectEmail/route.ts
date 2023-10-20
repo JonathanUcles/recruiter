@@ -12,6 +12,7 @@ export async function POST(request:Request){
             cc:`${prospectCompaignEmail}`,
             to:`${toEmail}`,
             subject:`${subject}`,
+            reply_to:`${prospectCompaignEmail}`,
             react:ProspectEmail({name})
         })
         const { id } = await emailResponse
