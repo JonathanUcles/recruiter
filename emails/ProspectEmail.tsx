@@ -1,10 +1,13 @@
 import React from 'react'
 import {Html} from '@react-email/html'
 import { Button } from '@react-email/button'
-const ProspectEmail = () =>{
+type ProspectEmail = {
+    name:string
+}
+const ProspectEmail = ({name }:ProspectEmail) =>{
     return(
         <Html>
-          <h1>test</h1>
+          <h1>{name}</h1>
             <Button
             pX={20}
             pY={12}

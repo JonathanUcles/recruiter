@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "email":"email dev --port 3005"
+    "email": "email dev --port 3005"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.25.5",
@@ -17,7 +17,8 @@
     "next": "13.5.5",
     "react": "^18",
     "react-dom": "^18",
-    "react-email": "1.9.5"
+    "react-email": "1.9.5",
+    "resend": "^1.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
