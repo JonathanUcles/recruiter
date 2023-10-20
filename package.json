@@ -12,7 +12,11 @@
   "dependencies": {
     "@clerk/nextjs": "^4.25.5",
     "@react-email/button": "0.0.10",
+    "@react-email/container": "0.0.8",
+    "@react-email/head": "0.0.5",
+    "@react-email/heading": "0.0.9",
     "@react-email/html": "0.0.4",
+    "@react-email/tailwind": "0.0.9",
     "mysql2": "^3.6.2",
     "next": "13.5.5",
     "react": "^18",

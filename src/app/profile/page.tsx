@@ -7,8 +7,9 @@ const Page = async ({params}:{params:{slug:string}}) =>{
    
     return(
         <>
+        
             <p>Profile {user?.firstName} {user?.lastName}</p>
-            <Link href={`/profile/${user?.firstName}${user?.lastName}?uid=${userId}`}>View Public Profile!</Link>
+            <Link href={`/profile/${user?.username}?uid=${userId}`}>View Public Profile!</Link>
         </>
     
     )
