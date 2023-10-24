@@ -5,12 +5,12 @@ export const collegeCoachingStaff = mysqlTable('collegeCoachingStaff',{
     email:varchar('email',{length:256}).notNull(),
     phone:varchar('phone',{length:20}),
     state:varchar('state',{length:25}).notNull(),
+    jobTitle:varchar('jobTitle',{length:256}).notNull(),
     university:varchar('university',{length:256}).notNull(),
     division:varchar('division',{length:10}).notNull(),
     directoryUrl:text('directoryUrl').notNull()
 },(table)=>{
     return {
-        univeristyIndx:uniqueIndex('university_indx').on(table.university),
         emailIndx:uniqueIndex('email_indx').on(table.email)
 
     }

@@ -1,0 +1,1 @@
+ALTER TABLE `collegeCoachingStaff` DROP CONSTRAINT `university_indx`;

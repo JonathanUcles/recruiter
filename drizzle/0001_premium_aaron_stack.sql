@@ -1,0 +1,1 @@
+ALTER TABLE `collegeCoachingStaff` ADD `jobTitle` varchar(25) NOT NULL;

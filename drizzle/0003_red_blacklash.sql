@@ -1,0 +1,1 @@
+ALTER TABLE `collegeCoachingStaff` MODIFY COLUMN `jobTitle` varchar(256) NOT NULL;
