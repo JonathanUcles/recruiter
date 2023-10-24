@@ -1,20 +1,12 @@
-'use client'
-import { useCallback } from 'react'
-import { useSearchParams } from 'next/navigation'
-import SearchBar  from '@/app/components/SearchBar'
-const Page = ()=>{
-    const searchParams = useSearchParams();
-
-    const createQueryString = useCallback((name:string, value:string)=>{
-        const params = new URLSearchParams(searchParams);
-        params.set(name,value);
-        console.log(params)
-        return params.toString()
-    },[searchParams])
-    console.log(searchParams)
+import SearchBar  from '@/components/SearchBar'
+import { getAllCollegeCoachingStaff } from '@/lib/queries/collegeCoachingStaff'
+const Page = async ()=>{
+    const result = await getAllCollegeCoachingStaff();
+    console.log(result)
+   
     return(
         <>
-        <SearchBar paramHook={searchParams} paramCallBack={createQueryString}/>
+        <SearchBar />
       
         </>
     )

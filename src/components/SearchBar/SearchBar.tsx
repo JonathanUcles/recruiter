@@ -1,15 +1,19 @@
 'use client'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import Link from 'next/link'
-import { ReadonlyURLSearchParams, usePathname} from 'next/navigation'
-const SearchBar = ({paramHook,paramCallBack}:
-    {
-        paramHook:ReadonlyURLSearchParams,
-        paramCallBack:(name: string, value: string) => string
-    }) =>{
-        const searchedCollegeName = paramHook.get('name')
-        const selectedState = paramHook.get('state')
-        const selectedDivision = paramHook.get('division')
+import { usePathname, useSearchParams} from 'next/navigation'
+const SearchBar = () =>{
+        const searchParams = useSearchParams();
+
+        const searchedCollegeName = searchParams .get('name')
+        const selectedState = searchParams.get('state')
+        const selectedDivision = searchParams.get('division')
+        const createQueryString = useCallback((name:string, value:string)=>{
+            const params = new URLSearchParams(searchParams);
+            params.set(name,value);
+            
+            return params.toString()
+        },[searchParams])
 
 
         const [ collegeName, setCollegeName ] = useState(searchedCollegeName||'')
@@ -24,7 +28,7 @@ const SearchBar = ({paramHook,paramCallBack}:
             <Link
         href={
           // <pathname>?sort=desc
-          pathname + '?' + paramCallBack('name', collegeName)
+          pathname + '?' + createQueryString('name', collegeName)
         }>
             <button className="border p-1" >Search</button>
 
@@ -38,7 +42,7 @@ const SearchBar = ({paramHook,paramCallBack}:
                     key={index}
                     href={
                         // <pathname>?sort=desc
-                        pathname + '?' + paramCallBack('state', state)
+                        pathname + '?' + createQueryString('state', state)
                       }
                       className={`bg-gray-100 px-2 py-1 rounded border-2 ${selectedState === state ? 'border-blue-500':'border-gray-200'}`}
                     >
@@ -56,7 +60,7 @@ const SearchBar = ({paramHook,paramCallBack}:
                     key={index}
                     href={
                         // <pathname>?sort=desc
-                        pathname + '?' + paramCallBack('division', division)
+                        pathname + '?' + createQueryString('division', division)
                       }
                       className={`bg-gray-100 px-2 py-1 rounded border-2 ${selectedDivision === division ? 'border-blue-500':'border-gray-200'}`}
                     >

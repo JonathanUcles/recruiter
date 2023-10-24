@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "email": "email dev --port 3005",
-    "introspect": "drizzle-kit introspect:mysql"
+    "introspect": "drizzle-kit introspect:mysql",
+    "migrate:generate":"drizzle-kit generate:mysql",
+    "migrate:push":"drizzle-kit push:mysql"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.25.5",
