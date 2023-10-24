@@ -1,13 +1,14 @@
 import SearchBar  from '@/components/SearchBar'
+import { StaffList } from '@/components';
 import { getAllCollegeCoachingStaff } from '@/lib/queries/collegeCoachingStaff'
 const Page = async ()=>{
-    const result = await getAllCollegeCoachingStaff();
-    console.log(result)
+    const results = await getAllCollegeCoachingStaff();
+    
    
     return(
         <>
         <SearchBar />
-      
+        <StaffList result={results} />
         </>
     )
 }

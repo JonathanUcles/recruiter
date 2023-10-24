@@ -6,5 +6,6 @@ type CollegeCoachingStaff = {
     state:string,
     university:string,
     division:string,
+    jobTitle:string,
     directoryUrl?:string
 }
