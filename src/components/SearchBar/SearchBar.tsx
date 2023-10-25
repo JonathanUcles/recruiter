@@ -5,7 +5,7 @@ import { usePathname, useSearchParams} from 'next/navigation'
 const SearchBar = () =>{
         const searchParams = useSearchParams();
 
-        const searchedCollegeName = searchParams .get('name')
+        const searchedCollegeName = searchParams.get('name')
         const selectedState = searchParams.get('state')
         const selectedDivision = searchParams.get('division')
         const createQueryString = useCallback((name:string, value:string)=>{
