@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         <main className='container'>
-          <div className="flex items-start justify-center min-h-screen">
+          <div className="flex items-start justify-center min-h-screen min-w-screen">
           <div className='mt-20'>
           {children}
           </div>

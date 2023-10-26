@@ -23,20 +23,27 @@ const SearchBar = () =>{
 
     return(
         <>
-        <div className='flex'>
-            <input className="border" placeholder="Enter College Name" value={collegeName} onChange={e=>setCollegeName(e.target.value)}/>
+        <div className="flex rounded-md shadow-sm">
+        <div className="relative flex flex-grow items-stretch focus-within:z-10">
+
+            <input className="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+             placeholder="Enter College Name" value={collegeName} onChange={e=>setCollegeName(e.target.value)}/>
+            </div>
             <Link
         href={
           // <pathname>?sort=desc
           pathname + '?' + createQueryString('name', collegeName)
         }>
-            <button className="border p-1" >Search</button>
+            <button className="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-md px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50" >Search</button>
 
         </Link>
         
         </div>
-        <h3>State</h3>
-        <div>
+        <div className='mt-2'>
+            
+        
+        <h3 className='block text-sm font-medium leading-6 text-gray-900 py-2'>State</h3>
+        <div className='flex gap-2'>
             {states.map((state, index)=>(
                 <Link
                     key={index}
@@ -44,7 +51,7 @@ const SearchBar = () =>{
                         // <pathname>?sort=desc
                         pathname + '?' + createQueryString('state', state)
                       }
-                      className={`bg-gray-100 px-2 py-1 rounded border-2 ${selectedState === state ? 'border-blue-500':'border-gray-200'}`}
+                      className={`rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 ${selectedState === state ? 'ring-blue-500':'ring-gray-200'}`}
                     >
                         {state}
                 </Link>
@@ -52,7 +59,7 @@ const SearchBar = () =>{
 
             )}
         </div>
-        <h3>NCAA Division</h3>
+        <h3 className='block text-sm font-medium leading-6 text-gray-900 py-2'>NCAA Division</h3>
         <div className='flex gap-2'>
             
             {divisions.map((division, index)=>(
@@ -62,13 +69,14 @@ const SearchBar = () =>{
                         // <pathname>?sort=desc
                         pathname + '?' + createQueryString('division', division)
                       }
-                      className={`bg-gray-100 px-2 py-1 rounded border-2 ${selectedDivision === division ? 'border-blue-500':'border-gray-200'}`}
+                      className={`rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 ${selectedDivision === division ? 'ring-blue-500':'ring-gray-200'}`}
                     >
                         {division}
                 </Link>
             )
 
             )}
+        </div>
         </div>
         </>
     )
