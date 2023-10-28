@@ -46,9 +46,9 @@ export const playerPublicProfile = mysqlTable('playerPublicProfile',{
 })
 export const gameHighlights = mysqlTable('gameHighlights',{
     id:serial('id').primaryKey(),
-    playerID:text('playerID'),
-    url:text('url'),
-    title:varchar('title',{length:256})
+    playerID:text('playerID').notNull(),
+    url:text('url').notNull(),
+    title:varchar('title',{length:256}).notNull()
 
 })
 

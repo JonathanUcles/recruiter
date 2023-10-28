@@ -9,3 +9,10 @@ type CollegeCoachingStaff = {
     jobTitle:string,
     directoryUrl?:string
 }
+type gameHighlights={
+    id:number,
+    playerID:string,
+    url:string,
+    title:string,
+
+}
