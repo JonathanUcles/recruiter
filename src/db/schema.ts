@@ -106,10 +106,44 @@ export const accessToAppEmailList = mysqlTable('accessToAppEmailList',{
 })
 export const campaigns = mysqlTable('campaigns',{
     id:varchar('id',{length:250}).primaryKey(),
-    senderID:varchar('senderID',{length:250}).primaryKey(),
+    senderID:varchar('senderID',{length:250}),
     senderEmail:varchar('senderEmail',{length:250}).notNull(),
     toEmail:varchar('toEmail',{length:250}).notNull(),
     subject:varchar('subject',{length:250}).notNull(),
     templateUsed:varchar('templateUsed',{length:250}).notNull(),
     createdAt: timestamp('createdAt').defaultNow()
+})
+export const coachPublicProfile = mysqlTable('coachPublicProfile',{
+    id:varchar('id',{length:256}).primaryKey(),
+    firstName:varchar('firstName',{length:256}).notNull(),
+    middleName:varchar('middleName',{length:256}),
+    lastName:varchar('lastName',{length:256}).notNull(),
+    jobTitle:varchar('jobTitle',{length:256}).notNull(),
+    email:varchar('email',{length:256}).notNull(),
+    username:varchar('username',{length:256}),
+    schoolTeamID:varchar('schoolTeamID',{length:256}),
+    aauTeamID:varchar('aauTeamID',{length:256}),
+    createdAt: timestamp('createdAt').defaultNow(),
+    updatedAt: timestamp('updatedAt').defaultNow()
+
+
+
+})
+
+export const schoolTeamStaff = mysqlTable('schoolTeamStaff',{
+    id:varchar('id',{length:256}).primaryKey(),
+    schoolID:varchar('SchoolID',{length:256}).notNull(),
+    coachID:varchar('coachID',{length:256}).notNull(),
+
+
+})
+export const coachEvaluation = mysqlTable('coachEvaluation', {
+    id: varchar('id',{length:250}).primaryKey().notNull().default(sql`(uuid())`),
+    coachID:varchar('coachID',{length:256}).notNull(),
+    playerID:varchar('SchoolID',{length:256}).notNull(),
+    highlightUrl:text('highlightUrl'),
+    evaluation:text('evaluation').notNull(),
+    createdAt: timestamp('createdAt').defaultNow(),
+    updatedAt: timestamp('updatedAt').defaultNow()
+
 })
