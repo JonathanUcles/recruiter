@@ -85,3 +85,12 @@ export const aauTeams = mysqlTable('aauTeams',{
     circut:varchar('circut',{length:256}),
     createdAt: timestamp('createdAt').defaultNow(), 
 })
+
+export const schoolToPlayerRoster = mysqlTable('schoolToPlayerRoster',{
+    id: varchar('id',{length:250}).primaryKey().notNull().default(sql`(uuid())`),
+    schoolID:varchar('schoolID',{length:250}).notNull(),
+    playerId:varchar('playerID',{length:250}).notNull(),
+    position:varchar('position',{length:250}).notNull(),
+    season:varchar('season',{length:50}).notNull(),
+    createdAt: timestamp('createdAt').defaultNow()
+})
