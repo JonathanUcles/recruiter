@@ -1,0 +1,1 @@
+ALTER TABLE `playerPublicProfile` MODIFY COLUMN `username` varchar(25) NOT NULL;

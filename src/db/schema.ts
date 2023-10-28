@@ -24,7 +24,7 @@ export const playerPublicProfile = mysqlTable('playerPublicProfile',{
     lastName:varchar('lastName',{length:256}).notNull(),
     hand:varchar('hand',{length:25}),
     weight:varchar('weight',{length:25}),
-    username:varchar('username',{length:25}).unique(),
+    username:varchar('username',{length:25}).unique().notNull(),
     email:varchar('email',{length:256}).notNull(),
     aauTeam:varchar('aauTeam',{length:256}),
     school:varchar('school',{length:256}).notNull(),
