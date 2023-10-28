@@ -1,4 +1,4 @@
-import { mysqlTable, serial, varchar, uniqueIndex , text, timestamp} from 'drizzle-orm/mysql-core'
+import { mysqlTable, serial, varchar, uniqueIndex , text, timestamp, boolean} from 'drizzle-orm/mysql-core'
 import { sql } from 'drizzle-orm'
 export const collegeCoachingStaff = mysqlTable('collegeCoachingStaff',{
     id:serial('id').primaryKey(),
@@ -93,4 +93,14 @@ export const schoolToPlayerRoster = mysqlTable('schoolToPlayerRoster',{
     position:varchar('position',{length:250}).notNull(),
     season:varchar('season',{length:50}).notNull(),
     createdAt: timestamp('createdAt').defaultNow()
+})
+export const accessToAppEmailList = mysqlTable('accessToAppEmailList',{
+    id: varchar('id',{length:250}).primaryKey().notNull().default(sql`(uuid())`),
+    email:varchar('email',{length:100}).unique().notNull(),
+    isPlayer:boolean('isPlayer').notNull(),
+    isCoach:boolean('isCoach').notNull(),
+    active:boolean('active'),
+    approved:boolean('approved'),
+    createdAt: timestamp('createdAt').defaultNow()
+
 })
