@@ -1,4 +1,5 @@
-import { mysqlTable, serial, varchar, uniqueIndex , text} from 'drizzle-orm/mysql-core'
+import { mysqlTable, serial, varchar, uniqueIndex , text, timestamp} from 'drizzle-orm/mysql-core'
+import { sql } from 'drizzle-orm'
 export const collegeCoachingStaff = mysqlTable('collegeCoachingStaff',{
     id:serial('id').primaryKey(),
     name: varchar('name',{length:256}).notNull(),
@@ -51,3 +52,9 @@ export const gameHighlights = mysqlTable('gameHighlights',{
 
 })
 
+export const roles = mysqlTable('roles', {
+    id: varchar('id',{length:250}).primaryKey().notNull().default(sql`(uuid())`),
+    name:varchar('name',{length:250}).unique().notNull(),
+    createdAt: timestamp('createdAt').defaultNow()
+
+})
