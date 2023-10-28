@@ -58,3 +58,30 @@ export const roles = mysqlTable('roles', {
     createdAt: timestamp('createdAt').defaultNow()
 
 })
+export const users = mysqlTable('users',{
+    id:varchar('id',{length:256}).primaryKey(),
+    firstName: varchar('firstName',{length:256}).notNull(),
+    lastName: varchar('lastName',{length:256}).notNull(),
+    email:varchar('email',{length:256}).unique().notNull(),
+    username: varchar('username',{length:256}).notNull(),
+    roleID:varchar('roleID',{length:250}).notNull(),
+    createdAt: timestamp('createdAt').defaultNow()
+
+})
+export const schoolTeams = mysqlTable('schoolTeams',{
+    id: varchar('id',{length:250}).primaryKey().notNull().default(sql`(uuid())`),
+    schoolName:varchar('schoolName',{length:256}).notNull(),
+    teamName:varchar('teamName',{length:256}).notNull(),
+    division:varchar('division',{length:256}).notNull(),
+    conference:varchar('conference',{length:256}).notNull(),
+    state:varchar('state',{length:256}).notNull(),
+    city:varchar('city',{length:256}),
+    createdAt: timestamp('createdAt').defaultNow()
+})
+export const aauTeams = mysqlTable('aauTeams',{
+    id: varchar('id',{length:250}).primaryKey().notNull().default(sql`(uuid())`),
+    teamName:varchar('teamName',{length:256}).notNull(),
+    ageGroup:varchar('program',{length:10}).notNull(),
+    circut:varchar('circut',{length:256}),
+    createdAt: timestamp('createdAt').defaultNow(), 
+})
