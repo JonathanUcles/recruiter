@@ -104,3 +104,12 @@ export const accessToAppEmailList = mysqlTable('accessToAppEmailList',{
     createdAt: timestamp('createdAt').defaultNow()
 
 })
+export const campaigns = mysqlTable('campaigns',{
+    id:varchar('id',{length:250}).primaryKey(),
+    senderID:varchar('senderID',{length:250}).primaryKey(),
+    senderEmail:varchar('senderEmail',{length:250}).notNull(),
+    toEmail:varchar('toEmail',{length:250}).notNull(),
+    subject:varchar('subject',{length:250}).notNull(),
+    templateUsed:varchar('templateUsed',{length:250}).notNull(),
+    createdAt: timestamp('createdAt').defaultNow()
+})

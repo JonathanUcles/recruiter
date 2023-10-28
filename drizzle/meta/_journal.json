@@ -64,6 +64,20 @@
       "when": 1698469478031,
       "tag": "0008_perfect_selene",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1698474266666,
+      "tag": "0009_blushing_iceman",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1698474316927,
+      "tag": "0010_youthful_talkback",
+      "breakpoints": true
     }
   ]
 }
