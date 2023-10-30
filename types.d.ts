@@ -37,3 +37,8 @@ type PlayerPublicProfile = {
     recentHighlightUrl:string | null,  
 
 }
+type Roles ={
+    id:string,
+    name:string,
+    createdAt: Date | null
+}
