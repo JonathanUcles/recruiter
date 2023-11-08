@@ -42,11 +42,18 @@ const GettingStarted = ({user,roles}:Props) =>{
                     </div>
                 </fieldset>
             </div>
-            {accountType === roles[0].id && <>{roles[0].name}
-            </>
-            }
+            {accountType === roles[0].id && <CoachesForm/>}
+            {accountType === roles[1].id && <PlayersForm/>}
+
         </form>
         </>
     )
 }
 export default GettingStarted;
+
+const PlayersForm =() =>{
+    return(<></>)
+}
+const CoachesForm =() =>{
+    return(<></>)
+}

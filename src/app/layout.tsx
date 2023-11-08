@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { GeistSans } from 'geist/font'
 import './globals.css'
 import { Navbar, Footer } from '@/components'
 import { ClerkProvider } from '@clerk/nextjs'
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,17 +16,17 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-    <html lang="en">
+    <html lang="en" className={GeistSans.className}>
       <head>
         
       </head>
       
-      <body className={inter.className}>
+      <body >
         <Navbar />
         <main className='container'>
           <div className="flex items-start justify-center min-h-screen min-w-screen">
           <div className='mt-20'>
-          {children}
+            {children}
           </div>
           </div>
         
